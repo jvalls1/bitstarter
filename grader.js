@@ -71,7 +71,7 @@ var checkHtml = function(cheerioStream, checksfile) {
 };
 
 var checkHtmlFile = function(htmlfile, checksfile) {
-    $ = cheerioHtmlFile(htmlfile);
+    var $ = cheerioHtmlFile(htmlfile);
     return checkHtml($, checksfile);
 };
 
@@ -83,7 +83,7 @@ var checkHtmlStream = function(fileUrl, checksfile, resultCallback) {
             else
                 console.error('Error: no response from server');
 	} else {
-            $ = cheerioHtmlStream(result);
+            var $ = cheerioHtmlStream(result);
             var checkJson = checkHtml($, checksfile);
             resultCallback(checkJson);
         }
